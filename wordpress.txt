@@ -1,0 +1,43 @@
+準備 日本語入力対応
+sudo apt install fcitx5 fcitx-mozc
+
+1.Apache2のダウンロード
+ sudo apt install apache2
+2.phpのダウンロード
+ sudo apt install php8.2（現行版）
+3.phpの確認のためphpinfoを追加
+ sudo nano /var/www/html/test.php
+ <?php phpinfo(); ?>
+その後http://192.168.5.115/test.phpにアクセス
+4.MariaDBのインストール
+　sudo apt install mariadb-server
+5.php-sqlのインストール
+ sudo apt install php-mysql
+6.mariadbの起動時の状態の設定
+ sudo systemctl enable mariadb
+7.mariadbを有効
+ sudo systemctl start mariadb
+8.正常に設定できたか確認
+ sudo systemclt status mariadb
+9.ディレクトリの変更
+ cd /var/www/html/
+10.すべてのファイルを削除
+ sudo rm -R *
+ dir
+11.Wordpressの取得
+ sudo wget http://wordpress.org/latest.tar.gz
+12.展開
+ sudo tar xzf latest.tar.gz
+13.移動
+ sudo mv wordpress/* .
+14.権限の付与
+ sudo chown -R www-data: .
+14.mariadbの設定
+ sudo mysql
+ create database wordpress;
+ CREATE USER 'test'@'localhots' IDENTIFIED BY 'test';
+ use mysql;
+ GRANT ALL on wordpress.* TO 'test'@'localhost' IDENTIFIED BY 'test';
+
+ 
+
