@@ -35,7 +35,7 @@ ax.legend()
 ax.grid(True)
 
 power_supply.write('VSET1:1')
-power_supply.write(':ISET1:0.3')
+power_supply.write('ISET1:0.3')
 
 while True:
     current_time = time.time()-start_time
