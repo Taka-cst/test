@@ -5,12 +5,11 @@ import numpy as np
 
 R = 0
 C = 0
-V_in_peak = 0
-V_in_RMS = V_in_peak / np.sqrt(2)
 
-def calculate_capacitor_voltage(frequency, R, C, V_in_peak):
-    V_in_RMS = V_in_peak / np.sqrt(2)
-    return V_in_RMS / np.sqrt(1 + (2 * np.pi * frequency * R * C)**2)
+def calculate_capacitor_voltage(frequency, R, C):
+    t1=1/((2*np.pi*frequency)*C)
+    t2=np.sqrt(R**2+(1/((2*np.pi*frequency*C)))**2)
+    return t1 / t2 / np.sqrt(2)
 
 
 def get_voltage(fq):
@@ -56,7 +55,7 @@ ax.grid(True,which='both', linestyle='--', linewidth=0.5)
 
 for idx, freq in enumerate(frequencies):
     measured_voltage = get_voltage(freq)
-    theoretical_voltage = calculate_capacitor_voltage(freq, R, C, V_in_peak)
+    theoretical_voltage = calculate_capacitor_voltage(freq, R, C)
     print(f'Frequency:{freq:.2f}Hz, Measured Voltage:{measured_voltage:.2f}V, Theoretical Voltage:{theoretical_voltage:.2f}V')
     measured_voltages.append(measured_voltage)
     theoretical_voltages.append(theoretical_voltage)
