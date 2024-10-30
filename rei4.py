@@ -67,7 +67,7 @@ for idx, freq in enumerate(frequencies):
     ax.autoscale_view()
     plt.draw()
     plt.pause(0.1)
-    np.savetxt('rei5up.csv',np.array([freq,measured_voltage,theoretical_voltage]).T,
+    np.savetxt('rei4.csv',np.array([freq,measured_voltage,theoretical_voltage]).T,
                delimiter=',')
 
 measurement_device.close()
