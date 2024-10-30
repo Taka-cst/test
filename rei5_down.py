@@ -10,10 +10,10 @@ measurement_device.write(':MAIN:RANG:VAL 5e0')
 power_supply_address=''
 power_supply=rm.open_resource(power_supply_address)
 
-power_supply.write(':INST OUT1')
-power_supply.write(':VOLT 0')
-power_supply.write(':CURR 0')
-power_supply.write(':OUTP ON')
+power_supply.write('TRACK0')
+power_supply.write('VSET1:0')
+power_supply.write('ISET1:0')
+power_supply.write('OUT 1')
 
 time.sleep(5)
 
@@ -37,8 +37,10 @@ ax.grid(True)
 power_supply.write(':VOLT 1')
 power_supply.write(':CURR 0.3')
 
-time.sleep(10)#充電待機
+time.sleep(100)#充電待機
 power_supply.write(':VOLT 0')
+power_supply.write(':CURR 0')
+
 
 while True:
     current_time = time.time()-start_time
@@ -72,4 +74,3 @@ power_supply.close()
 rm.close()
 plt.ioff()
 plt.show()
-
