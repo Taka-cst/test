@@ -29,8 +29,3 @@ while True:
     time.sleep(0.1)
     #csvとして保存
     np.savetxt('sin_wave.csv',np.array([freq,amp]).T,delimiter=',')
-
-
-
-
-    
