@@ -7,10 +7,10 @@ R = 5150
 C = 1e-8
 
 def calculate_capacitor_voltage(frequency, R, C):
-    # t1 = 1 / ((2 * np.pi * frequency) * C)
-    # t2 = np.sqrt(R**2 + (1 / ((2 * np.pi * frequency * C)))**2)
-    # return t1 / t2 / np.sqrt(2)
-    return 1/np.sqrt(2)
+    t1 = 1 / ((2 * np.pi * frequency) * C)
+    t2 = np.sqrt(R**2 + (1 / ((2 * np.pi * frequency * C)))**2)
+    return t1 / t2 / np.sqrt(2)
+    # return 1/np.sqrt(2)
 def get_voltage(fq):
     function_generator.write(f':FREQ {fq}')
     time.sleep(2)

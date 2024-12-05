@@ -1,0 +1,1 @@
+flag{Dareka_kono_code_oshiete}
