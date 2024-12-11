@@ -1,4 +1,3 @@
-
 void setup() {
     Serial.begin(9600);
     for (int pin=8;pin<=13;pin++) {pinMode(pin, OUTPUT);}
